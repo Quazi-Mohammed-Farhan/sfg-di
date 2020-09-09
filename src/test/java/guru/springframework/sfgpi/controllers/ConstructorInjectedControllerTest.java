@@ -5,7 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import guru.springframework.sfgpi.services.GreetingServiceImpl;
+import guru.springframework.sfgpi.services.ConstructorGreetingServiceImpl;
 
 class ConstructorInjectedControllerTest {
 
@@ -13,7 +13,7 @@ class ConstructorInjectedControllerTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		constructorInjectedController = new ConstructorInjectedController(new GreetingServiceImpl());
+		constructorInjectedController = new ConstructorInjectedController(new ConstructorGreetingServiceImpl());
 	}
 
 	@AfterEach

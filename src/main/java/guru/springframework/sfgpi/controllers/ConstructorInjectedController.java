@@ -1,5 +1,6 @@
 package guru.springframework.sfgpi.controllers;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 import guru.springframework.sfgpi.services.GreetingService;
@@ -9,7 +10,12 @@ public class ConstructorInjectedController {
 
 	private final GreetingService greetingService;
 	
-	public ConstructorInjectedController(GreetingService greetingService) {
+	
+	//Applying @Autowired annotation is optional for constructor injection
+	public ConstructorInjectedController(
+			@Qualifier("constructorGreetingServiceImpl")
+			GreetingService greetingService) {
+		
 		this.greetingService = greetingService;
 	}
 	
