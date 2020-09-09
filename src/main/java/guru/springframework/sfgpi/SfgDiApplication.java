@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import guru.springframework.sfgpi.controllers.ConstructorInjectedController;
+import guru.springframework.sfgpi.controllers.I18GreetingController;
 import guru.springframework.sfgpi.controllers.MyController;
 import guru.springframework.sfgpi.controllers.PropertyInjectedController;
 import guru.springframework.sfgpi.controllers.SetterInjectedController;
@@ -15,16 +16,22 @@ public class SfgDiApplication {
 	public static void main(String[] args) {
 		
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
+
+		System.out.println("--------- I18GreetingControllser ---------");
+		I18GreetingController  i18GreetingController = 
+				ctx.getBean("i18GreetingController", I18GreetingController.class);
+		
+		System.out.println(i18GreetingController.greeting());
+		
 		MyController myController = ctx.getBean("myController", MyController.class);
 		System.out.println(myController.greeting());
 	
-	
 		System.out.println("--------- Property Injected Controller ---------");
 		
-		PropertyInjectedController  propertyInjectedController = 
+		PropertyInjectedController  propertyInjectedController  = 
 				ctx.getBean("propertyInjectedController", PropertyInjectedController.class);
 		
-		System.out.println(propertyInjectedController.greeting());
+		System.out.println(propertyInjectedController .greeting());
 		
 		System.out.println("---------Setter Method Injected Controller ---------");
 		
